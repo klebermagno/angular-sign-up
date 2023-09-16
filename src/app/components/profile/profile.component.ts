@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private fb: NonNullableFormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.usersService.currentUserProfile$
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
 
   uploadFile(event: any, { uid }: ProfileUser) {
     this.imageUploadService
-      .uploadImage(event.target.files[0], `images/profile/${uid}`)
+      .uploadImage(event.target.files[0], `images/profile/users/${uid}`)
       .pipe(
         this.toast.observe({
           loading: 'Uploading profile image...',

@@ -22,7 +22,9 @@ import { LandingComponent } from './components/landing/landing.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProfileComponent } from './components/profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
-
+import { provideAnalytics, getAnalytics, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,11 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
     HotToastModule.forRoot(),
     MatMenuModule,
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService, UserTrackingService, AuthService,
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

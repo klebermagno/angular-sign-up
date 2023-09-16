@@ -44,14 +44,14 @@ export class SignUpComponent implements OnInit {
   );
 
   constructor(
-    private authService: AuthService,
+    public authService: AuthService,
     private router: Router,
     private toast: HotToastService,
     private usersService: UsersService,
     private fb: NonNullableFormBuilder
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   get email() {
     return this.signUpForm.get('email');

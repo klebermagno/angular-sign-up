@@ -17,32 +17,27 @@
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Password"
-        formControlName="password"
-      />
+      <input matInput type="password" placeholder="Password" formControlName="password" />
       <mat-error *ngIf="password?.errors?.['required']">
         Password is required
       </mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input
-        matInput
-        type="password"
-        placeholder="Confirm Password"
-        formControlName="confirmPassword"
-      />
+      <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
       <mat-error *ngIf="confirmPassword?.errors?.['required']">
         Confirm Password is required
       </mat-error>
     </mat-form-field>
     <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
-        Passwords should match
+      Passwords should match
     </mat-error>
     <div class="center margin-top">
       <button type="submit" mat-raised-button color="primary">Sign Up!</button>
     </div>
   </form>
+  <span class="center margin-top">
+    <button type="button" mat-raised-button color="primary" (click)="authService.GoogleAuth()">
+      Log in with Google
+    </button>
+  </span>
 </div>
